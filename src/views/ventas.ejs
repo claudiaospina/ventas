@@ -1,0 +1,73 @@
+<%- include ('partials/_header'); -%>
+
+<h1>VENTAS</h1>
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-9">
+<table class="table table-bordered table-hover">
+    <thead>
+        <th>Conteo Ventas</th>
+        <th>Valor Venta</th>
+        <th>Descripción</th>
+        <th>Fecha Venta</th>
+        <th>Fecha Pago</th>
+        <th>Responsable</th>
+        <th>Acción</th>
+
+        <tbody>
+            <% if (data) { %>
+              <% for(var i = 0; i < data.length; i++) { %>
+                <tr>
+                    <td><%= (i + 1) %></td>
+                  <td><%= data[i].ValorVenta %></td>
+                  <td><%= data[i].Descripcion %></td>
+                  <td><%= data[i].FechaVenta %></td>
+                  <td><%= data[i].FechaPago %></td>
+                  <td><%= data[i].Responsable %></td>
+                  <td>
+                    <a href='/update-ventas/<%= data[i].IDVenta %>' class="btn btn-info">Editar</a>
+                    <a href='/delete-ventas/<%= data[i].IDVenta %>' class="btn btn-danger" >Eliminar</a>
+                  </td>
+                </tr>
+              <% } %>
+            <% } %>
+          </tbody>
+
+    </thead>
+</table>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add-ventas" method="post">
+                        
+                        <div class="form-group">
+                            <input type="int" name="ValorVenta" placeholder="Valor de la venta" class=form-control>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Descripcion" placeholder="Descripción de la venta" class=form-control>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="FechaVenta" placeholder="Fecha de la venta" class=form-control>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="FechaPago" placeholder="Fecha de pago" class=form-control>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Responsable" placeholder="Responsable de la venta" class=form-control>
+                        </div>
+                        <button type= "submit" class="btn btn-primary">Agregar Venta</button>            
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<%- include ('partials/_footer'); -%>

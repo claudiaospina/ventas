@@ -1,0 +1,42 @@
+<%- include ('partials/_header'); -%>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action='/update-ventas/<%= data.IDVenta %>' method="post">
+                        
+                        <div class="form-group">
+                            <input type="int" name="ValorVenta" value="<%= data.ValorVenta %>" class=form-control>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Descripcion" value="<%= data.Descripcion %>"  class=form-control>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="FechaVenta" value="<%= data.FechaVenta %>"  class=form-control>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="FechaPago" value="<%= data.FechaPago %>"  class=form-control>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Responsable" value="<%= data.Responsable %>"  class=form-control>
+                        </div>
+                        <button type= "submit" class="btn btn-primary">Actualizar Venta</button>            
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<%- include ('partials/_footer'); -%>
